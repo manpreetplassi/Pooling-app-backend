@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import authRouter from './view/authRouter.js';
+import poolRouter from './view/pool.js';
 import http from 'http'
 import { Server } from 'socket.io';
 import { socketInit } from './socket/index.js';
@@ -9,6 +10,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(authRouter)
+app.use(poolRouter)
 app.get('/', (req, res) => {
     res.send("hello")
 })
